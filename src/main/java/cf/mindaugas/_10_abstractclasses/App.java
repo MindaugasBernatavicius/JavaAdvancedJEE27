@@ -61,7 +61,6 @@ public class App {
     public static double doubleTheArea(Shape shape){
         return shape.getArea() * 2;
     }
-
     public static void main(String[] args) {
         System.out.println(doubleTheArea(new Square(56)));
         System.out.println(doubleTheArea(new Circle(56)));

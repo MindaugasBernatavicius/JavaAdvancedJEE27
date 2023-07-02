@@ -69,11 +69,11 @@ public class _00_SimpleExceptionsExample {
         // }
 
         // Exception in thread "main" java.lang.RuntimeException: java.lang.Exception: Exception, the 2nd parameter cant be zero for division
-        //      at cf.mindaugas._11_exceptions.App.main(App.java:39) <--- MOST IMPORTANT LINE
-        //      at cf.mindaugas._11_exceptions.App.main(App.java:39) (this line did not appear in the original output)
-        //      at cf.mindaugas._11_exceptions.App.main(App.java:39) (this line did not appear in the original output)
+        //      at cf.mindaugas._11_exceptions.App.main(_01_BasicReflection.java:39) <--- MOST IMPORTANT LINE
+        //      at cf.mindaugas._11_exceptions.App.main(_01_BasicReflection.java:39) (this line did not appear in the original output)
+        //      at cf.mindaugas._11_exceptions.App.main(_01_BasicReflection.java:39) (this line did not appear in the original output)
         // Caused by: java.lang.Exception: Exception, the 2nd parameter cant be zero for division
-        //      at cf.mindaugas._11_exceptions.App.divide(App.java:17) <--- MOST IMPORTANT LINE
-        //      at cf.mindaugas._11_exceptions.App.main(App.java:36)
+        //      at cf.mindaugas._11_exceptions.App.divide(_01_BasicReflection.java:17) <--- MOST IMPORTANT LINE
+        //      at cf.mindaugas._11_exceptions.App.main(_01_BasicReflection.java:36)
     }
 }

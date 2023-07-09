@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @AllArgsConstructor
 @ToString
@@ -68,12 +65,43 @@ public class App {
         phoneBookMap.put("B", new Person(66, "B", 578578));
         phoneBookMap.put("C", new Person(77, "C", 57858758));
 
-        var res = phoneBookMap.get("D");
+        var res = phoneBookMap.get("A");
         System.out.println(res != null ? res.getPhoneNumber() : "Not found");
     }
 
+    public static void _02_IterationOverMapsAndItemRemoval(){
+        // a word and it's synonyms
+        Map<String, List<String>> synonyms = new HashMap<>();
+        synonyms.put("flower", Arrays.asList("herb", "vine", "floret"));
+        synonyms.put("car", Arrays.asList("vehicle", "transport"));
+
+        // iteration
+        // for(Map.Entry<String, List<String>> kv : synonyms.entrySet()){
+        //     System.out.println(kv.getKey() + " -> " + kv.getValue());
+        // }
+
+        for(var kv : synonyms.entrySet())
+            System.out.println(kv.getKey() + " -> " + kv.getValue());
+
+        // removal
+        System.out.println("Before removal: " + synonyms);
+        System.out.println("Printing as removal happens" + synonyms.remove("flower"));
+        synonyms.remove("flower");
+        synonyms.remove("flower");
+        synonyms.remove("flower", new ArrayList<String>()); // remove if key is mapped to a specific value and return boolean
+        System.out.println("After removal: " + synonyms);
+    }
+
     public static void main(String[] args) {
+        // Situations to use a map:
+        // - Name -> PhoneNumber == Map<String, Integer> or Map<String, String> if phone number format: +370-265-596191
+        // - Word -> Synonyms == Map<String, List<String>> : "flower" -> ["herb", "vine", "floret"], "car" -> ["vehicle", "transport"]
+        // - DepartmentName -> People working in that department == Map<String, List<Person>>
+        // - CountryName -> All cities in that country == Map<String, List<String | City>>
+        // - AverageGrade -> Student == Map<Float, List<Student>>
+
         // _00_simpleUsage();
-        _01_listVsMap();
+        // _01_listVsMap();
+        _02_IterationOverMapsAndItemRemoval();
     }
 }

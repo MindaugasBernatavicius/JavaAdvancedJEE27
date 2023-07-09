@@ -164,11 +164,11 @@ public class App {
         // trainingSchedule.sort(Comparator.comparingInt(o -> o.getDurationSeconds()).reversed());
         // trainingSchedule.sort(Comparator.comparingInt(o -> ((Exercise)o).getDurationSeconds()).reversed());
         // trainingSchedule.sort(Comparator.comparingInt(Exercise::getDurationSeconds)); // best practice
-        // trainingSchedule.sort(Comparator.comparing(Exercise::getName));
+        trainingSchedule.sort(Comparator.comparing(Exercise::getName));
         // trainingSchedule.sort(Comparator.comparingInt(Exercise::getDurationSeconds).reversed());
-        trainingSchedule.sort(Comparator
-                .comparingInt(Exercise::getDurationSeconds)
-                .thenComparing(Exercise::getName));
+        // trainingSchedule.sort(Comparator
+        //         .comparingInt(Exercise::getDurationSeconds)
+        //         .thenComparing(Exercise::getName));
         // trainingSchedule.sort(Comparator
         //         .comparingInt(Exercise::getDurationSeconds)
         //         .thenComparing(Exercise::getName)
@@ -247,15 +247,26 @@ public class App {
         // Person cannot be cast to class java.lang.Comparable
         Queue<Exercise> exerciseQueue = new PriorityQueue<> ();
         // Queue<Exercise> exerciseQueue = new PriorityQueue<>((o1, o2) -> /* custom comparator order */);
-        exerciseQueue.add(new Exercise("Jogging", 1500));
+
+        var ex1 = new Exercise("Jogging", 1500);
+        exerciseQueue.add(ex1);
+        // ex1.name = "--------";
         exerciseQueue.add(new Exercise("Weight Training", 4500));
         exerciseQueue.add(new Exercise("Ab Crunches", 1200));
 
-        System.out.println(exerciseQueue);
-        System.out.println(exerciseQueue.remove());
-        System.out.println(exerciseQueue);
-        System.out.println(exerciseQueue.remove());
-        System.out.println(exerciseQueue);
+        // System.out.println(exerciseQueue);
+        // System.out.println(exerciseQueue.remove());
+        // System.out.println(exerciseQueue);
+        // System.out.println(exerciseQueue.remove());
+        // System.out.println(exerciseQueue);
+
+        // // when printing, you will see weird order - as if the queue is just partially ordered
+        // for (var exercise : exerciseQueue)
+        //     System.out.println(exercise);
+        //
+        // while(!exerciseQueue.isEmpty())
+        //     System.out.println(exerciseQueue.poll());
+        // System.out.println(exerciseQueue);
     }
 
     public static void main(String[] args) {
@@ -265,6 +276,6 @@ public class App {
         // multidimensionality();
         // iterators();
         // sets();
-        // queues();
+        queues();
     }
 }

@@ -1,9 +1,6 @@
 package cf.mindaugas._14_io;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,30 +26,40 @@ class Person {
 }
 
 public class App {
-    public static void main(String[] args) throws IOException {
-        File dataFile = new File("target\\classes\\data.csv");
+    public static void _00_representingAFile() throws IOException {
+        // File dataFile = new File("target\\classes\\data.csv");
         // File dataFile = new File("C:\\Users\\Mindaugas\\Desktop\\data2.csv");
         // System.out.println(dataFile.canRead());
         // C:\Users\Mindaugas\Desktop\Projects\SDA\JavaAdvancedJEE27\target\classes\data.csv
         // C:\Users\Mindaugas\Desktop\Projects\SDA\JavaAdvancedJEE27
-        System.out.println("Working Directory = " + System.getProperty("user.dir"));
 
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
+        File dataFile = new File("test.txt");
+        System.out.println((new FileReader(dataFile)).read());
+    }
+    public static void _01_ReadingCSVLineByLine() throws IOException {
+        File dataFile = new File("target\\classes\\data.csv");
         List<Person> people = new ArrayList<>();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(dataFile));
         String fileLine;
         bufferedReader.readLine(); // skipping the first line
         while ((fileLine = bufferedReader.readLine()) != null) {
-            // System.out.println(fileLine);
+            System.out.println(fileLine);
             // System.out.println(Arrays.toString(fileLine.split(",")));
-            String[] values = fileLine.split(",");
-            people.add(new Person(
-                Integer.parseInt(values[0]),
-                values[1],
-                Double.parseDouble(values[2]))
-            );
+            // String[] values = fileLine.split(",");
+            // people.add(new Person(
+            //         Integer.parseInt(values[0]),
+            //         values[1],
+            //         Double.parseDouble(values[2]))
+            // );
         }
+    }
+    public static void _02_ReadingWithIOCharByChar(){}
+    public static void _03_ReadingWithIOBuffered() {}
 
-        System.out.println(people);
+    public static void main(String[] args) throws IOException {
+        _00_representingAFile();
+        // System.out.println(people);
 
         // TODO: check libraries that would make handling csv files simpler
         // <dependency>
